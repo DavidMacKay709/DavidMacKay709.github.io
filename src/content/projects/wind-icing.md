@@ -2,7 +2,7 @@
 title: Forecasting Wind Turbine Icing Losses
 summary: A statistical model for predicting wind turbine production losses during icing events, to support day-ahead bidding.
 org: Angler Solutions
-period: 2026
+period: '2026'
 tags: [Python, Statistical modelling, Wind, Power markets]
 featured: true
 order: 2

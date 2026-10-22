@@ -1,0 +1,43 @@
+---
+import type { ImageMetadata } from 'astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Gallery from '../components/Gallery.astro';
+
+// Drop photos into src/assets/whitefish/ and they appear in the gallery, ordered by filename.
+const allPhotos = import.meta.glob<ImageMetadata>('/src/assets/whitefish/*.{jpg,jpeg,png,webp}', {
+  eager: true,
+  import: 'default',
+});
+const photos = Object.keys(allPhotos)
+  .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
+  .map((path) => allPhotos[path]);
+---
+
+<BaseLayout
+  title="Whitefish Landscaping"
+  description="Whitefish Landscaping, the contracting business David MacKay started and ran in St. John's and Ottawa."
+>
+  <header class="page-header">
+    <h1>Whitefish Landscaping</h1>
+    <p class="lede">Owner & Operator · St. John's & Ottawa · 2021 – 2022</p>
+  </header>
+
+  <section class="prose">
+    <p>
+      I started Whitefish Landscaping while at university and ran it from 2021 to 2022, taking on
+      jobs in St. John's and Ottawa.
+    </p>
+    <p>
+      As owner-operator I handled the whole business: finding and managing clients, quoting,
+      procurement, safety planning, and delivering projects to the National Building Code of Canada.
+    </p>
+  </section>
+
+  {photos.length > 0 && <Gallery images={photos} title="Whitefish Landscaping" heading="Our work" />}
+</BaseLayout>
+
+<style>
+  .prose p {
+    margin: 0 0 1rem;
+  }
+</style>

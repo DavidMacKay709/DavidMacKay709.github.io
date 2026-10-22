@@ -1,0 +1,79 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+  backHref: string;
+  backLabel: string;
+  title: string;
+  meta: string;
+  tags?: string[];
+  cover?: ImageMetadata;
+}
+
+const { backHref, backLabel, title, meta, tags = [], cover } = Astro.props;
+---
+
+<p class="back"><a href={backHref}>← {backLabel}</a></p>
+<header class="page-header">
+  <h1>{title}</h1>
+  <p class="lede">{meta}</p>
+  <ul class="tags">
+    {tags.map((tag) => <li class="tag">{tag}</li>)}
+  </ul>
+</header>
+
+{cover && <Image class="hero-image" src={cover} alt="" width={1200} />}
+
+<article class="prose">
+  <slot />
+</article>
+
+<style>
+  .back {
+    margin: 1.5rem 0 0;
+  }
+
+  .page-header {
+    padding-top: 1rem;
+  }
+
+  .page-header .tags {
+    margin-top: 1rem;
+  }
+
+  .hero-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .prose :global(h2) {
+    font-size: 1.25rem;
+    margin: 2rem 0 0.75rem;
+  }
+
+  .prose :global(li) {
+    margin-bottom: 0.4rem;
+  }
+
+  .prose :global(img) {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .prose :global(iframe) {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    border-radius: 0.5rem;
+    margin: 1.5rem 0;
+  }
+</style>

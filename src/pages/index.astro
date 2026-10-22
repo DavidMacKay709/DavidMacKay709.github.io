@@ -1,11 +1,20 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ProjectCard from '../components/ProjectCard.astro';
+import Card from '../components/Card.astro';
+import { expeditionCard, projectCard } from '../lib/cards';
 
-const featured = (await getCollection('projects', ({ data }) => data.featured)).sort(
-  (a, b) => a.data.order - b.data.order,
-);
+const [projects, expeditions] = await Promise.all([
+  getCollection('projects'),
+  getCollection('expeditions'),
+]);
+
+const featured = [
+  ...expeditions.map((e) => ({ rank: e.data.featured, card: expeditionCard(e) })),
+  ...projects.map((p) => ({ rank: p.data.featured, card: projectCard(p) })),
+]
+  .filter((item): item is typeof item & { rank: number } => item.rank !== undefined)
+  .sort((a, b) => a.rank - b.rank);
 ---
 
 <BaseLayout>
@@ -20,25 +29,15 @@ const featured = (await getCollection('projects', ({ data }) => data.featured)).
     </p>
     <div class="actions">
       <a class="button" href="/projects/">See my work</a>
-      <a class="button secondary" href="/resume/">Resume</a>
+      <a class="button secondary" href="/expeditions/">Expeditions</a>
     </div>
   </section>
 
   <section class="section">
-    <h2 class="section-title">Featured projects</h2>
+    <h2 class="section-title">Featured</h2>
     <div class="card-grid">
-      {featured.map((project) => <ProjectCard project={project} />)}
+      {featured.map(({ card }) => <Card {...card} />)}
     </div>
-    <p class="more"><a href="/projects/">All projects →</a></p>
-  </section>
-
-  <section class="section">
-    <h2 class="section-title">Off the grid</h2>
-    <p>
-      I led a 49-day, 2,200 km sea kayak circumnavigation of Newfoundland, placed 4th in my
-      division at the 715 km Yukon River Quest, and joined a 70-day self-supported canoe
-      expedition through Canada's Arctic. <a href="/expeditions/">Read about the expeditions →</a>
-    </p>
   </section>
 
   <section class="section">
@@ -73,9 +72,5 @@ const featured = (await getCollection('projects', ({ data }) => data.featured)).
     flex-wrap: wrap;
     gap: 0.75rem;
     margin-top: 1.75rem;
-  }
-
-  .more {
-    margin-top: 1rem;
   }
 </style>

@@ -4,7 +4,7 @@ summary: Leading development of the optimization module for MESO, a Python/Pyomo
 org: Angler Solutions
 period: 2026 – Present
 tags: [Python, Pyomo, MILP, Stochastic optimization, Benders decomposition]
-featured: true
+featured: 4
 order: 1
 ---
 

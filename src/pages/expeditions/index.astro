@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Card from '../../components/Card.astro';
+import { expeditionCard } from '../../lib/cards';
+
+const expeditions = (await getCollection('expeditions')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout title="Expeditions" description="Sea kayak, canoe, and whitewater expeditions by David MacKay.">
+  <header class="page-header">
+    <h1>Expeditions</h1>
+    <p class="lede">
+      Long, self-supported trips by kayak, canoe, and raft. Planning them has taught me a lot
+      about risk assessment and staying calm when conditions change.
+    </p>
+  </header>
+
+  <div class="card-grid">
+    {expeditions.map((expedition) => <Card {...expeditionCard(expedition)} />)}
+  </div>
+</BaseLayout>

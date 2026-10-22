@@ -4,7 +4,6 @@ summary: Field surveys of remote community grids in the Yukon, turned into MATLA
 org: Northern Energy Innovation
 period: 2023 – 2024
 tags: [MATLAB/Simulink, Field work, Interconnection studies, Graph theory]
-featured: false
 order: 5
 ---
 

@@ -4,7 +4,6 @@ summary: A statistical model for predicting wind turbine production losses durin
 org: Angler Solutions
 period: '2026'
 tags: [Python, Statistical modelling, Wind, Power markets]
-featured: true
 order: 2
 ---
 

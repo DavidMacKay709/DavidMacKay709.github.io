@@ -1,7 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import ProjectCard from '../../components/ProjectCard.astro';
+import Card from '../../components/Card.astro';
+import { projectCard } from '../../lib/cards';
 
 const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
 ---
@@ -13,6 +14,6 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
   </header>
 
   <div class="card-grid">
-    {projects.map((project) => <ProjectCard project={project} />)}
+    {projects.map((project) => <Card {...projectCard(project)} />)}
   </div>
 </BaseLayout>

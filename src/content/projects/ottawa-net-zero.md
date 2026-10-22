@@ -4,7 +4,6 @@ summary: Integration lead for a 25+ student team building a least-cost investmen
 org: Sustainable Energy Systems Portfolio, Carleton University
 period: 2023 – 2024
 tags: [MATLAB/Simulink, Investment planning, EV demand, Sensitivity analysis]
-featured: false
 order: 6
 ---
 

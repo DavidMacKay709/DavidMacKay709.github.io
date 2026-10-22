@@ -1,0 +1,34 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DetailPage from '../../components/DetailPage.astro';
+
+export async function getStaticPaths() {
+  const expeditions = await getCollection('expeditions');
+  return expeditions.map((expedition) => ({
+    params: { id: expedition.id },
+    props: { expedition },
+  }));
+}
+
+interface Props {
+  expedition: CollectionEntry<'expeditions'>;
+}
+
+const { expedition } = Astro.props;
+const { title, summary, when, stats, cover } = expedition.data;
+const { Content } = await render(expedition);
+---
+
+<BaseLayout title={title} description={summary}>
+  <DetailPage
+    backHref="/expeditions/"
+    backLabel="All expeditions"
+    title={title}
+    meta={when}
+    tags={stats}
+    cover={cover}
+  >
+    <Content />
+  </DetailPage>
+</BaseLayout>

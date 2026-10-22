@@ -4,7 +4,6 @@ summary: A 10-node model of the Canadian grid with multistage stochastic optimiz
 org: APEX Research Group, Carleton University
 period: 2024 – 2025
 tags: [Stochastic optimization, DC power flow, Capacity expansion]
-featured: false
 order: 4
 ---
 

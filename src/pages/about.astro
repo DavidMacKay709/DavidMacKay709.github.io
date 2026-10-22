@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const skills = [
+  { area: 'Programming & Data', items: 'Python (pandas, NumPy, Pyomo), MATLAB/Simulink, Git, Excel, LaTeX' },
+  {
+    area: 'Optimization & Analytics',
+    items: 'Mixed-integer linear programming, multi-stage stochastic optimization, decomposition methods (Benders)',
+  },
+  {
+    area: 'Power Systems',
+    items:
+      'Unit dispatch and storage scheduling, capacity expansion planning, generation interconnection studies, renewable integration (wind, solar, BESS, hydrogen)',
+  },
+  {
+    area: 'Techno-Economic Analysis',
+    items: 'NPV and lifecycle cost analysis, LCOE/LCOA, discounted cash flow, sensitivity and scenario analysis',
+  },
+  { area: 'Languages', items: 'English (native), French (intermediate)' },
+];
+---
+
+<BaseLayout title="About" description="About David MacKay, energy systems engineer (E.I.T.).">
+  <header class="page-header">
+    <h1>About</h1>
+    <p class="lede">Energy systems engineer (E.I.T.) working on power system modelling and optimization.</p>
+  </header>
+
+  <section class="prose">
+    <p>
+      I studied Aerospace and Mechanical Engineering at Carleton University. Field work with
+      Northern Energy Innovation in the Yukon, mapping remote community power systems from
+      generator to load, is what moved me from aerospace into power and energy systems.
+    </p>
+    <p>
+      Today I'm an Energy Systems E.I.T. at Angler Solutions in St. John's, where I help lead
+      development of the optimization module for MESO (Model for Energy Systems
+      Optimization). Forecasting wind turbine icing losses and reservoir inflows to inform
+      day-ahead bidding has drawn me toward power markets, which is where I want to build my career.
+    </p>
+    <p>
+      Before that I was a research associate with the APEX Research Group at Carleton, where I
+      co-authored a paper on hydrogen microgrids for remote northern communities, published in
+      <em>Applied Energy</em> in 2025.
+    </p>
+    <p>
+      Outside work I plan and lead long, self-supported expeditions. They've taught me
+      first-hand what risk assessment really means, and they've made me thrive in high-pressure,
+      dynamic environments. <a href="/expeditions/">More on that here.</a>
+    </p>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Skills</h2>
+    <dl class="skills">
+      {
+        skills.map((skill) => (
+          <div>
+            <dt>{skill.area}</dt>
+            <dd>{skill.items}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </section>
+</BaseLayout>
+
+<style>
+  .prose p {
+    margin: 0 0 1rem;
+  }
+
+  .skills {
+    margin: 0;
+    display: grid;
+    gap: 1rem;
+  }
+
+  dt {
+    font-weight: 600;
+  }
+
+  dd {
+    margin: 0;
+    color: var(--muted);
+  }
+</style>

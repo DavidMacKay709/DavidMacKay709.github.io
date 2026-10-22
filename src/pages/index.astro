@@ -1,31 +1,81 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const featured = (await getCollection('projects', ({ data }) => data.featured)).sort(
+  (a, b) => a.data.order - b.data.order,
+);
 ---
 
 <BaseLayout>
   <section class="hero">
-    <h1>Hi, I'm David.</h1>
+    <p class="eyebrow">Energy Systems Engineer (E.I.T.) · St. John's, NL</p>
+    <h1>I build optimization models for power systems.</h1>
+    <p class="lede">
+      I'm David MacKay. At Angler Solutions I help lead development of the optimization
+      module for MESO, a Python/Pyomo platform for capacity expansion and hourly dispatch.
+      I'm especially interested in power markets. Outside work, I plan and lead long
+      expeditions by kayak and canoe.
+    </p>
+    <div class="actions">
+      <a class="button" href="/projects/">See my work</a>
+      <a class="button secondary" href="/resume/">Resume</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Featured projects</h2>
+    <div class="card-grid">
+      {featured.map((project) => <ProjectCard project={project} />)}
+    </div>
+    <p class="more"><a href="/projects/">All projects →</a></p>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Off the grid</h2>
     <p>
-      This is my corner of the internet: work, projects, and the occasional personal post.
-      The site is under construction, so check back soon.
+      I led a 49-day, 2,200 km sea kayak circumnavigation of Newfoundland, placed 4th in my
+      division at the 715 km Yukon River Quest, and joined a 70-day self-supported canoe
+      expedition through Canada's Arctic. <a href="/expeditions/">Read about the expeditions →</a>
+    </p>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Get in touch</h2>
+    <p>
+      I'm always happy to talk about energy systems, optimization, or power markets. Email me at <a
+        href="mailto:davidmackay709@gmail.com">davidmackay709@gmail.com</a
+      >.
     </p>
   </section>
 </BaseLayout>
 
 <style>
   .hero {
-    padding-block: 4rem 2rem;
+    padding-block: 3.5rem 1rem;
+  }
+
+  .eyebrow {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 0 0 0.75rem;
   }
 
   h1 {
     font-size: clamp(2rem, 6vw, 3rem);
-    line-height: 1.1;
     margin: 0 0 1rem;
   }
 
-  p {
-    color: var(--muted);
-    font-size: 1.15rem;
-    margin: 0;
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+  }
+
+  .more {
+    margin-top: 1rem;
   }
 </style>

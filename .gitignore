@@ -5,3 +5,6 @@ dist/
 .env.*
 .DS_Store
 Thumbs.db
+
+# Private source resume (has phone number) — publish a redacted copy in public/ instead
+David_MacKay_Resume.pdf

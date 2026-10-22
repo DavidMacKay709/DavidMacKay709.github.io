@@ -87,6 +87,26 @@ const { backHref, backLabel, title, meta, tags = [], cover } = Astro.props;
     margin: 1.5rem 0 0.5rem;
   }
 
+  .prose :global(.instagram-grid) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+    gap: 1rem;
+    align-items: start;
+    margin: 1.5rem 0;
+  }
+
+  /* Instagram's embed sets its own inline margins and min-width; let it fill the grid cell. */
+  .prose :global(.instagram-grid .instagram-media) {
+    margin: 0 !important;
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  .prose :global(.instagram-grid iframe) {
+    aspect-ratio: auto;
+    margin: 0;
+  }
+
   .prose :global(iframe) {
     display: block;
     width: 100%;

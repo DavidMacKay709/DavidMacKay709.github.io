@@ -7,20 +7,16 @@ interface Props {
   backLabel: string;
   title: string;
   meta: string;
-  tags?: string[];
   cover?: ImageMetadata;
 }
 
-const { backHref, backLabel, title, meta, tags = [], cover } = Astro.props;
+const { backHref, backLabel, title, meta, cover } = Astro.props;
 ---
 
 <p class="back"><a href={backHref}>← {backLabel}</a></p>
 <header class="page-header">
   <h1>{title}</h1>
   <p class="lede">{meta}</p>
-  <ul class="tags">
-    {tags.map((tag) => <li class="tag">{tag}</li>)}
-  </ul>
 </header>
 
 {cover && <Image class="hero-image" src={cover} alt="" width={1200} />}
@@ -36,10 +32,6 @@ const { backHref, backLabel, title, meta, tags = [], cover } = Astro.props;
 
   .page-header {
     padding-top: 1rem;
-  }
-
-  .page-header .tags {
-    margin-top: 1rem;
   }
 
   .hero-image {

@@ -3,6 +3,8 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Card from '../../components/Card.astro';
 import { projectCard } from '../../lib/cards';
+import chargingProfiles from '../../assets/coursework/charging-profiles.png';
+import gibbsTemperature from '../../assets/coursework/gibbs-temperature.png';
 
 const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
 ---
@@ -16,4 +18,24 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
   <div class="card-grid">
     {projects.map((project) => <Card {...projectCard(project)} />)}
   </div>
+
+  <section class="section">
+    <h2 class="section-title">Coursework</h2>
+    <div class="card-grid">
+      <Card
+        href="/projects/coursework/capstone/"
+        title="Capstone: Ottawa's 2050 Energy System"
+        meta="Sustainable Energy Systems Portfolio · 2023 – 2024"
+        summary="Integration team lead for 25+ students, projecting Ottawa's 2050 EV load and building a least-cost optimization model of the city's future energy system."
+        cover={chargingProfiles}
+      />
+      <Card
+        href="/projects/coursework/reports/"
+        title="Other Reports"
+        meta="AERO 4442A · Transatmospheric and Space Propulsion"
+        summary="Propulsion assignments: combustion equilibrium by Gibbs free energy minimization, and a sounding rocket trajectory simulation."
+        cover={gibbsTemperature}
+      />
+    </div>
+  </section>
 </BaseLayout>

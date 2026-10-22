@@ -18,7 +18,7 @@ interface Props {
 }
 
 const { expedition } = Astro.props;
-const { title, summary, when, stats, cover } = expedition.data;
+const { title, summary, when, cover } = expedition.data;
 const { Content } = await render(expedition);
 
 // Any images in src/content/expeditions/<id>/photos/ become the page's gallery,
@@ -40,7 +40,6 @@ const photos = Object.keys(allPhotos)
     backLabel="The Great Outdoors"
     title={title}
     meta={when}
-    tags={stats}
     cover={cover}
   >
     <Content />

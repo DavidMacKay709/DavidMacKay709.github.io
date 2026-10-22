@@ -1,11 +1,11 @@
 ---
 import { Image } from 'astro:assets';
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import DetailPage from '../../components/DetailPage.astro';
-import PdfViewer from '../../components/PdfViewer.astro';
-import chargingProfiles from '../../assets/coursework/charging-profiles.png';
-import dailyEvDemand from '../../assets/coursework/daily-ev-demand.png';
-import modelOutput from '../../assets/coursework/model-output.png';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import DetailPage from '../../../components/DetailPage.astro';
+import PdfViewer from '../../../components/PdfViewer.astro';
+import chargingProfiles from '../../../assets/coursework/charging-profiles.png';
+import dailyEvDemand from '../../../assets/coursework/daily-ev-demand.png';
+import modelOutput from '../../../assets/coursework/model-output.png';
 ---
 
 <BaseLayout
@@ -13,12 +13,10 @@ import modelOutput from '../../assets/coursework/model-output.png';
   description="SESP capstone: projecting Ottawa's 2050 EV load and optimizing the city's future energy mix."
 >
   <DetailPage
-    backHref="/coursework/"
-    backLabel="Coursework"
+    backHref="/projects/"
+    backLabel="Projects"
     title="Capstone: Ottawa's 2050 Energy System"
-    meta="Sustainable Energy Systems Portfolio, Carleton University · 2023 – 2024"
-    tags={['Integration team lead', 'MATLAB', 'MILP', 'EV demand', 'Sensitivity analysis']}
-  >
+    meta="Sustainable Energy Systems Portfolio, Carleton University · 2023 – 2024"  >
     <p>
       The Sustainable Energy Systems Portfolio (SESP) is a year-long, multidisciplinary capstone.
       Our goal was to work out how Ottawa could meet its 2050 electricity needs using the

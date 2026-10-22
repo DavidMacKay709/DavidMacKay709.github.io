@@ -3,7 +3,6 @@ title: Hydrogen Microgrids for Remote Northern Communities
 summary: Second author on a paper published in Applied Energy (2025). I took over the project and led it to completion.
 org: APEX Research Group, Carleton University
 period: 2024 – 2025
-tags: [Publication, Hydrogen, Microgrids, Solar PV]
 featured: 3
 order: 3
 ---

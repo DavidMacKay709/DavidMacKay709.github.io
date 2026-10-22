@@ -7,11 +7,10 @@ export interface Props {
   title: string;
   meta: string;
   summary: string;
-  tags?: string[];
   cover?: ImageMetadata;
 }
 
-const { href, title, meta, summary, tags = [], cover } = Astro.props;
+const { href, title, meta, summary, cover } = Astro.props;
 ---
 
 <article class="card">
@@ -25,9 +24,6 @@ const { href, title, meta, summary, tags = [], cover } = Astro.props;
   <h3><a href={href}>{title}</a></h3>
   <p class="meta">{meta}</p>
   <p>{summary}</p>
-  <ul class="tags">
-    {tags.map((tag) => <li class="tag">{tag}</li>)}
-  </ul>
 </article>
 
 <style>

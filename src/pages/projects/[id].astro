@@ -16,7 +16,7 @@ interface Props {
 }
 
 const { project } = Astro.props;
-const { title, summary, org, period, tags, cover } = project.data;
+const { title, summary, org, period, cover } = project.data;
 const { Content } = await render(project);
 ---
 
@@ -26,7 +26,6 @@ const { Content } = await render(project);
     backLabel="All projects"
     title={title}
     meta={`${org} · ${period}`}
-    tags={tags}
     cover={cover}
   >
     <Content />

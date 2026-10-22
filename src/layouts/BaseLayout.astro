@@ -13,9 +13,7 @@ const pageTitle = title ? `${title} | David MacKay` : 'David MacKay | Energy Sys
 
 const nav = [
   { href: '/about/', label: 'About' },
-  { href: '/projects/', label: 'Projects' },
-  { href: '/coursework/', label: 'Coursework' },
-  { href: '/expeditions/', label: 'The Great Outdoors' },
+  { href: '/projects/', label: 'Projects' },  { href: '/expeditions/', label: 'The Great Outdoors' },
 ];
 
 const path = Astro.url.pathname;
@@ -248,23 +246,6 @@ const isActive = (href: string) => {
 
   .card p {
     margin: 0 0 1rem;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    list-style: none;
-    padding: 0;
-    margin: auto 0 0;
-  }
-
-  .tag {
-    background: var(--accent-soft);
-    color: var(--text);
-    border-radius: 999px;
-    padding: 0.1rem 0.65rem;
-    font-size: 0.8rem;
   }
 
   .button {

@@ -2,7 +2,6 @@
 title: Grand Canyon Whitewater Rafting
 summary: A 28-day self-guided rafting trip down the Colorado River through the Grand Canyon.
 when: January 2023
-stats: [28 days, Self-guided, Whitewater]
 order: 4
 ---
 

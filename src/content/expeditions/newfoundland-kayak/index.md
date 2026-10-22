@@ -2,7 +2,6 @@
 title: Around the Rock by Sea Kayak
 summary: Led a 49-day, 2,200+ km sea kayak circumnavigation of the island of Newfoundland.
 when: Summer 2024
-stats: [49 days, '2,200+ km', Expedition leader]
 featured: 2
 order: 2
 ---

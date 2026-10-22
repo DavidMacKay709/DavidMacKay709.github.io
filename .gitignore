@@ -6,5 +6,6 @@ dist/
 .DS_Store
 Thumbs.db
 
-# Private source resume (has phone number) — publish a redacted copy in public/ instead
+# Private source files (phone/student numbers) — publish redacted copies in public/ instead
 David_MacKay_Resume.pdf
+documents/

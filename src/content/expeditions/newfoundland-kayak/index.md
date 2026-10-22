@@ -15,4 +15,16 @@ order: 2
   Link:   [Link text](https://example.com)
 -->
 
-I led a 49-day sea kayak expedition around the island of Newfoundland, covering more than 2,200 km. I was responsible for route planning, risk assessment, safety protocols, and finding sponsors.
+I led a 49-day sea kayak expedition around the island of Newfoundland with Jack Kotaska, covering more than 2,200 km. I was responsible for route planning, risk assessment, safety protocols, and finding sponsors.
+
+## Follow along
+
+We documented the trip on Instagram.
+
+<a class="button" href="https://www.instagram.com/aroundtherock2024/">@aroundtherock2024 on Instagram</a>
+
+## In the news
+
+- **CBC News:** [Chasing a record, at the whims of the sea, 2 kayakers paddle around Newfoundland in 49 days](https://www.cbc.ca/news/canada/newfoundland-labrador/aroundtherock-ocean-kayak-1.7302040) (August 27, 2024)
+- **Sea Kayaking UK:** [Around the Rock Expedition](https://seakayakinguk.com/expedition-eports/around-the-rock-expedition)
+- **Polite Canada (Facebook):** [Two kayakers, Newfoundlander David MacKay and Jack Kotaska…](https://www.facebook.com/politecanada/posts/two-kayakers-newfoundlander-david-mackay-and-jack-kotaska-from-the-northwest-ter/122163552770202709/)

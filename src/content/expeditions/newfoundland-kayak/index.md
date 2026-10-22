@@ -15,7 +15,7 @@ cover: ./log/photos/17939178296854190.jpg
   Link:   [Link text](https://example.com)
 -->
 
-I led a 49-day sea kayak expedition around the island of Newfoundland with Jack Kotaska, covering more than 2,200 km. I was responsible for route planning, risk assessment, safety protocols, and finding sponsors.
+A 49-day sea kayak expedition around the island of Newfoundland with Jack Kotaska, covering more than 2,200 km.
 
 ## In the news
 
@@ -25,6 +25,6 @@ I led a 49-day sea kayak expedition around the island of Newfoundland with Jack 
 
 ## Follow along
 
-We documented the trip on Instagram as we went. Those posts are collected in the trip log below, from the first announcement to landing back in Quidi Vidi.
+We documented the trip on Instagram as we went. Those posts are collected in the trip log below:
 
 <a class="button" href="https://www.instagram.com/aroundtherock2024/">@aroundtherock2024 on Instagram</a>

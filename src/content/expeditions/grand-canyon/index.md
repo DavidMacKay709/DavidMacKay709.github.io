@@ -14,4 +14,4 @@ cover: ./photos/IMG_2884.jpg
   Link:   [Link text](https://example.com)
 -->
 
-A 28-day self-guided rafting trip down the Colorado River through the Grand Canyon.
+28 days at the bottom of the big ditch:

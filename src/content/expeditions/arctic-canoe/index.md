@@ -5,6 +5,7 @@ when: Summer 2026
 stats: [70 days, Self-supported, Canoe]
 featured: 1
 order: 1
+cover: ./photos/20260916-180.jpg
 ---
 
 <!--

@@ -9,3 +9,6 @@ Thumbs.db
 # Private source files (phone/student numbers) — publish redacted copies in public/ instead
 /David_MacKay_Resume.pdf
 /documents/
+
+# Full-size photo originals — web-sized copies live in src/content/expeditions/<trip>/photos/
+/canoe_photos/

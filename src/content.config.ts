@@ -36,4 +36,18 @@ const expeditions = defineCollection({
     }),
 });
 
-export const collections = { projects, expeditions };
+// Optional trip log: src/content/expeditions/<name>/log/*.md, each with a date and its photos.
+const tripLog = defineCollection({
+  loader: glob({
+    pattern: '*/log/*.md',
+    base: './src/content/expeditions',
+    generateId: ({ entry }) => entry.replace('/log/', '/').replace(/\.md$/, ''),
+  }),
+  schema: ({ image }) =>
+    z.object({
+      date: z.coerce.date(),
+      photos: z.array(image()).default([]),
+    }),
+});
+
+export const collections = { projects, expeditions, tripLog };

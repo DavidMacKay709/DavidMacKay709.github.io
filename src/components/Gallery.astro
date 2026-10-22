@@ -5,9 +5,11 @@ import { Image, getImage } from 'astro:assets';
 interface Props {
   images: ImageMetadata[];
   title: string;
+  heading?: string;
+  aspect?: string;
 }
 
-const { images, title } = Astro.props;
+const { images, title, heading, aspect = '3 / 2' } = Astro.props;
 
 // Full-size versions for the slideshow; the grid uses smaller thumbnails.
 const photos = await Promise.all(
@@ -19,8 +21,8 @@ const photos = await Promise.all(
 );
 ---
 
-<section class="gallery-section">
-  <h2>Photos</h2>
+<section class="gallery-section" style={`--thumb-aspect: ${aspect}`}>
+  {heading && <h2>{heading}</h2>}
   <ul class="gallery">
     {
       photos.map((photo, i) => (
@@ -44,7 +46,7 @@ const photos = await Promise.all(
 
 <style>
   .gallery-section {
-    margin-top: 2.5rem;
+    margin-top: 1.25rem;
   }
 
   .gallery-section h2 {
@@ -71,7 +73,7 @@ const photos = await Promise.all(
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 3 / 2;
+    aspect-ratio: var(--thumb-aspect);
     object-fit: cover;
     transition: transform 0.2s ease;
   }

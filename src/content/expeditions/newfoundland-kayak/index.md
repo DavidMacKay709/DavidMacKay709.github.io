@@ -4,6 +4,7 @@ summary: Led a 49-day, 2,200+ km sea kayak circumnavigation of the island of New
 when: Summer 2024
 featured: 2
 order: 2
+cover: ./log/photos/17939178296854190.jpg
 ---
 
 <!--
@@ -24,15 +25,6 @@ I led a 49-day sea kayak expedition around the island of Newfoundland with Jack 
 
 ## Follow along
 
-We documented the trip on Instagram.
+We documented the trip on Instagram as we went. Those posts are collected in the trip log below, from the first announcement to landing back in Quidi Vidi.
 
 <a class="button" href="https://www.instagram.com/aroundtherock2024/">@aroundtherock2024 on Instagram</a>
-
-<div class="instagram-feed">
-<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/C-dS_zaxISu/" data-instgrm-version="14"><a href="https://www.instagram.com/p/C-dS_zaxISu/">View this post on Instagram</a></blockquote>
-<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/C-NnWx4Omxv/" data-instgrm-version="14"><a href="https://www.instagram.com/p/C-NnWx4Omxv/">View this post on Instagram</a></blockquote>
-<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/C9zdyFQxiKz/" data-instgrm-version="14"><a href="https://www.instagram.com/p/C9zdyFQxiKz/">View this post on Instagram</a></blockquote>
-<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/C8XRQQ1uHyW/" data-instgrm-version="14"><a href="https://www.instagram.com/p/C8XRQQ1uHyW/">View this post on Instagram</a></blockquote>
-</div>
-
-<script async src="https://www.instagram.com/embed.js"></script>

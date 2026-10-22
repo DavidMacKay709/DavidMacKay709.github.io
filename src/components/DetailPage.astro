@@ -85,23 +85,8 @@ const { backHref, backLabel, title, meta, cover } = Astro.props;
     margin: 1.5rem 0 0.5rem;
   }
 
-  .prose :global(.instagram-feed) {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin: 1.5rem 0;
-  }
-
-  /* Instagram's embed caps itself at 540px with inline styles; stretch it to the page width. */
-  .prose :global(.instagram-feed .instagram-media) {
-    margin: 0 !important;
-    min-width: 0 !important;
-    max-width: none !important;
-    width: 100% !important;
-  }
-
-  /* Video embeds (YouTube etc.). Instagram sizes its own iframe height, so leave it alone. */
-  .prose :global(iframe:not(.instagram-media)) {
+  /* Video embeds (YouTube etc.) */
+  .prose :global(iframe) {
     display: block;
     width: 100%;
     height: auto;

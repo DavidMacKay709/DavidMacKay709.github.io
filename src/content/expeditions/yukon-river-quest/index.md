@@ -3,6 +3,7 @@ title: Yukon River Quest
 summary: The world's longest annual paddling race, 715 km down the Yukon River. Placed 4th in my division.
 when: July 2023
 order: 3
+cover: ./photos/IMG_4474.jpg
 ---
 
 <!--

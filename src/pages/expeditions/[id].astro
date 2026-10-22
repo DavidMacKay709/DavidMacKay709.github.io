@@ -32,6 +32,21 @@ const photos = Object.keys(allPhotos)
   .filter((path) => path.startsWith(prefix))
   .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
   .map((path) => allPhotos[path]);
+
+// Trip log entries (src/content/expeditions/<id>/log/*.md), oldest first.
+const formatDate = (date: Date) =>
+  date.toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+const logEntries = (await getCollection('tripLog', (entry) => entry.id.startsWith(`${expedition.id}/`))).sort(
+  (a, b) => a.data.date.valueOf() - b.data.date.valueOf() || a.id.localeCompare(b.id),
+);
+const log = await Promise.all(
+  logEntries.map(async (entry) => ({
+    entry,
+    anchor: entry.id.split('/').pop(),
+    date: formatDate(entry.data.date),
+    Content: (await render(entry)).Content,
+  })),
+);
 ---
 
 <BaseLayout title={title} description={summary}>
@@ -44,5 +59,58 @@ const photos = Object.keys(allPhotos)
   >
     <Content />
   </DetailPage>
-  {photos.length > 0 && <Gallery images={photos} title={title} />}
+
+  {photos.length > 0 && <Gallery images={photos} title={title} heading="Photos" />}
+
+  {
+    log.length > 0 && (
+      <section class="trip-log">
+        <h2>Trip log</h2>
+        {log.map(({ entry, anchor, date, Content }) => (
+          <article class="log-entry" id={anchor}>
+            <time datetime={entry.data.date.toISOString().slice(0, 10)}>{date}</time>
+            <div class="log-body">
+              <Content />
+            </div>
+            {entry.data.photos.length > 0 && (
+              <Gallery images={entry.data.photos} title={`${title}, ${date}`} aspect="1 / 1" />
+            )}
+          </article>
+        ))}
+      </section>
+    )
+  }
 </BaseLayout>
+
+<style>
+  .trip-log {
+    margin-top: 3rem;
+  }
+
+  .trip-log h2 {
+    font-size: 1.25rem;
+    margin: 0 0 0.5rem;
+  }
+
+  .log-entry {
+    border-top: 1px solid var(--border);
+    padding-block: 1.75rem;
+  }
+
+  .log-entry time {
+    display: block;
+    color: var(--muted);
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .log-body :global(p) {
+    margin: 0 0 0.9rem;
+  }
+
+  .log-body :global(p:last-child) {
+    margin-bottom: 0;
+  }
+</style>

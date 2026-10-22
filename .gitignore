@@ -12,3 +12,7 @@ Thumbs.db
 
 # Full-size photo originals — web-sized copies live in src/content/expeditions/<trip>/photos/
 /canoe_photos/
+/Yukon_river_quest/
+
+# Instagram data export (followers, ad data, insights) — only post photos/captions are copied into the site
+/Around_the_rock/

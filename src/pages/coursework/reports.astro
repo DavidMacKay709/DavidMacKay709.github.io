@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DetailPage from '../../components/DetailPage.astro';
+import PdfViewer from '../../components/PdfViewer.astro';
+---
+
+<BaseLayout title="Other Reports" description="Propulsion coursework reports by David MacKay.">
+  <DetailPage
+    backHref="/coursework/"
+    backLabel="Coursework"
+    title="Other Reports"
+    meta="Carleton University · Aerospace and Mechanical Engineering"
+  >
+    <h2>Combustion Equilibrium by Gibbs Free Energy Minimization</h2>
+    <p class="course">AERO 4442A: Transatmospheric and Space Propulsion</p>
+    <p>
+      How the fuel-oxidizer ratio and chamber pressure set a rocket engine's post-combustion
+      temperature and exhaust composition. I solved for the equilibrium state by minimizing Gibbs
+      free energy across a range of equivalence ratios, starting with hydrogen and oxygen.
+    </p>
+    <PdfViewer src="/documents/gibbs-assignment.pdf" title="Gibbs Assignment" pages={11} />
+
+    <h2>Sounding Rocket Trajectory Simulation</h2>
+    <p class="course">AERO 4442A: Transatmospheric and Space Propulsion</p>
+    <p>
+      A numerical simulation in MATLAB that maps a sounding rocket's apogee and range across
+      launch angles and payload masses. It models drag and the 1976 US Standard Atmosphere, and
+      uses parallel computing to run the scenarios.
+    </p>
+    <PdfViewer src="/documents/trajectory-assignment.pdf" title="Trajectory Assignment" pages={13} />
+  </DetailPage>
+</BaseLayout>
+
+<style>
+  .course {
+    color: var(--muted);
+    margin-top: -0.5rem;
+  }
+</style>

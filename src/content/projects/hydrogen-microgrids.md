@@ -10,6 +10,8 @@ order: 3
 
 **Publication:** "Hydrogen microgrids to facilitate the clean energy transition in remote, northern communities", *Applied Energy*, 2025. Second author.
 
+<a class="button" href="https://www.sciencedirect.com/science/article/pii/S0306261925014886">Read the paper</a>
+
 The original author finished their M.Eng. partway through the project, and I took it over and led it to completion. My contributions:
 
 - Updated the methods to include solar PV

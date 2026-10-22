@@ -66,6 +66,27 @@ const { backHref, backLabel, title, meta, tags = [], cover } = Astro.props;
     margin: 1.5rem 0;
   }
 
+  .prose :global(figure) {
+    margin: 1.5rem 0;
+  }
+
+  .prose :global(figure img) {
+    margin: 0 auto;
+    background: #fff;
+  }
+
+  .prose :global(figcaption) {
+    color: var(--muted);
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  .prose :global(h3) {
+    font-size: 1.05rem;
+    margin: 1.5rem 0 0.5rem;
+  }
+
   .prose :global(iframe) {
     display: block;
     width: 100%;

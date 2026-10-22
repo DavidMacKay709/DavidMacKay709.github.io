@@ -7,5 +7,5 @@ dist/
 Thumbs.db
 
 # Private source files (phone/student numbers) — publish redacted copies in public/ instead
-David_MacKay_Resume.pdf
-documents/
+/David_MacKay_Resume.pdf
+/documents/

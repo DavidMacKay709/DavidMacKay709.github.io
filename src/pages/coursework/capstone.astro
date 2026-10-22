@@ -1,0 +1,78 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DetailPage from '../../components/DetailPage.astro';
+import PdfViewer from '../../components/PdfViewer.astro';
+import chargingProfiles from '../../assets/coursework/charging-profiles.png';
+import dailyEvDemand from '../../assets/coursework/daily-ev-demand.png';
+import modelOutput from '../../assets/coursework/model-output.png';
+---
+
+<BaseLayout
+  title="Capstone: Ottawa's 2050 Energy System"
+  description="SESP capstone: projecting Ottawa's 2050 EV load and optimizing the city's future energy mix."
+>
+  <DetailPage
+    backHref="/coursework/"
+    backLabel="Coursework"
+    title="Capstone: Ottawa's 2050 Energy System"
+    meta="Sustainable Energy Systems Portfolio, Carleton University · 2023 – 2024"
+    tags={['Integration team lead', 'MATLAB', 'MILP', 'EV demand', 'Sensitivity analysis']}
+  >
+    <p>
+      The Sustainable Energy Systems Portfolio (SESP) is a year-long, multidisciplinary capstone.
+      Our goal was to work out how Ottawa could meet its 2050 electricity needs using the
+      technologies our sub-teams were developing: a buoyant airborne wind turbine, solar, small
+      modular reactors, a hybrid lithium-ion/flywheel storage system, and building efficiency
+      upgrades. As integration team lead for 25+ students, I brought those pieces together into
+      one model of the city's energy system.
+    </p>
+
+    <h2>Fall: projecting Ottawa's 2050 EV load</h2>
+    <p>
+      I built a method to project the city's hourly electric vehicle demand in 2050 from empirical
+      data. It combines residential, workplace, and weekend charging profiles; a projection of
+      about 412,000 EVs on the road; a temperature model that raises energy use by up to 50% in
+      cold weather; and commute distances calculated from Ottawa's origin-destination survey with
+      QGIS and the Google Distance Matrix API.
+    </p>
+
+    <figure>
+      <Image src={chargingProfiles} alt="Line chart of hourly EV charging by profile: workplace charging peaks mid-morning, weekend in the late afternoon, and residential in the evening." />
+      <figcaption>Charging profiles: share of daily charging by hour for each profile.</figcaption>
+    </figure>
+
+    <figure>
+      <Image src={dailyEvDemand} alt="Daily EV energy demand across 2050, highest in winter at around 5,500 to 6,000 MWh per day and lowest in summer at around 4,000 MWh." />
+      <figcaption>Projected daily EV energy demand for 2050. Demand peaks in winter, when cold weather raises each vehicle's energy use.</figcaption>
+    </figure>
+
+    <h2>Winter: a least-cost optimization model</h2>
+    <p>
+      I then built a mixed-integer linear programming model in MATLAB that finds the cheapest mix
+      of generation and storage that meets Ottawa's load every hour. It covers each sub-team's
+      technology, using the constraints they supplied, plus imports from the Ontario grid. I used
+      parallel processing to run many scenarios at once, varying the allowed share of imports,
+      carbon prices, and three building-retrofit load scenarios.
+    </p>
+
+    <figure>
+      <Image src={modelOutput} alt="Stacked area chart of hourly generation by source over four representative weeks: nuclear provides the base, with wind, solar, and imports filling the peaks." />
+      <figcaption>Model output: hourly generation by source (heat pumps only, 50% imports allowed).</figcaption>
+    </figure>
+
+    <p>
+      The results showed the cost of full decarbonization. In the limited-retrofits scenario,
+      cutting imports from 100% to zero raised the annual system cost from $14.2B to $22.4B and
+      required about 27 GW of solar, with heavy curtailment. With heat pumps alone and no imports,
+      the sub-teams' technologies could not meet demand at all.
+    </p>
+
+    <h2>Reports</h2>
+    <h3>Final report</h3>
+    <PdfViewer src="/documents/sesp-final-report.pdf" title="SESP Integration Team Final Report" pages={17} />
+
+    <h3>Fall interim report</h3>
+    <PdfViewer src="/documents/sesp-interim-report.pdf" title="SESP Fall Interim Report" pages={16} />
+  </DetailPage>
+</BaseLayout>

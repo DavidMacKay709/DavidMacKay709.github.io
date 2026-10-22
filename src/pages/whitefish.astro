@@ -3,29 +3,39 @@ import type { ImageMetadata } from 'astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Gallery from '../components/Gallery.astro';
 
-// Drop photos into src/assets/whitefish/ and they appear in the gallery, ordered by filename.
-const allPhotos = import.meta.glob<ImageMetadata>('/src/assets/whitefish/*.{jpg,jpeg,png,webp}', {
+// Each project's photos live in src/assets/whitefish/<folder>/, ordered by filename.
+const projects = [
+  { folder: 'shed', title: 'Shed build' },
+  { folder: 'fence', title: 'Fence and gate' },
+  { folder: 'garden-fence', title: 'Garden fence' },
+  { folder: 'channel-drain', title: 'Channel drain' },
+  { folder: 'other', title: 'Other projects' },
+];
+
+const allPhotos = import.meta.glob<ImageMetadata>('/src/assets/whitefish/*/*.{jpg,jpeg,png,webp}', {
   eager: true,
   import: 'default',
 });
-const photos = Object.keys(allPhotos)
-  .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
-  .map((path) => allPhotos[path]);
+const photosIn = (folder: string) =>
+  Object.keys(allPhotos)
+    .filter((path) => path.startsWith(`/src/assets/whitefish/${folder}/`))
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
+    .map((path) => allPhotos[path]);
 ---
 
 <BaseLayout
   title="Whitefish Landscaping"
-  description="Whitefish Landscaping, the contracting business David MacKay started and ran in St. John's and Ottawa."
+  description="Whitefish Landscaping, the landscaping and contracting business David MacKay started and ran in Ottawa and St. John's."
 >
   <header class="page-header">
     <h1>Whitefish Landscaping</h1>
-    <p class="lede">Owner & Operator · St. John's & Ottawa · 2021 – 2022</p>
+    <p class="lede">Owner & Operator · Ottawa & St. John's · 2021 – 2022</p>
   </header>
 
   <section class="prose">
     <p>
       I started Whitefish Landscaping while at university and ran it from 2021 to 2022, taking on
-      jobs in St. John's and Ottawa.
+      landscaping and contracting projects in Ottawa and St. John's.
     </p>
     <p>
       As owner-operator I handled the whole business: finding and managing clients, quoting,
@@ -33,7 +43,12 @@ const photos = Object.keys(allPhotos)
     </p>
   </section>
 
-  {photos.length > 0 && <Gallery images={photos} title="Whitefish Landscaping" heading="Our work" />}
+  {
+    projects.map(({ folder, title }) => {
+      const photos = photosIn(folder);
+      return photos.length > 0 && <Gallery images={photos} title={title} heading={title} />;
+    })
+  }
 </BaseLayout>
 
 <style>

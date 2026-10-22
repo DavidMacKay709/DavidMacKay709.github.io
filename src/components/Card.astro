@@ -8,15 +8,17 @@ export interface Props {
   meta: string;
   summary: string;
   cover?: ImageMetadata;
+  /** 'contain' shows the whole image on a white panel instead of cropping it to fill. */
+  fit?: 'cover' | 'contain';
 }
 
-const { href, title, meta, summary, cover } = Astro.props;
+const { href, title, meta, summary, cover, fit = 'cover' } = Astro.props;
 ---
 
 <article class="card">
   {
     cover && (
-      <a class="cover" href={href} tabindex="-1" aria-hidden="true">
+      <a class={`cover ${fit}`} href={href} tabindex="-1" aria-hidden="true">
         <Image src={cover} alt="" width={720} />
       </a>
     )
@@ -42,5 +44,15 @@ const { href, title, meta, summary, cover } = Astro.props;
     height: auto;
     aspect-ratio: 16 / 10;
     object-fit: cover;
+  }
+
+  .cover.contain {
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .cover.contain img {
+    object-fit: contain;
+    padding: 0.75rem;
   }
 </style>

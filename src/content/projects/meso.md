@@ -3,6 +3,7 @@ title: MESO
 summary: Angler Solutions' platform for modelling and optimizing hybrid energy systems. I help lead development of its optimization module.
 org: Angler Solutions
 period: 2026 – Present
+preview: ../../assets/projects/angler-logo.png
 featured: 4
 order: 1
 ---

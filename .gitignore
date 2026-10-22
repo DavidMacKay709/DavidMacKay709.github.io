@@ -17,3 +17,7 @@ Thumbs.db
 
 # Instagram data export (followers, ad data, insights) — only post photos/captions are copied into the site
 /Around_the_rock/
+
+# Raw source assets
+/Angler_logo/
+/Whitefish/

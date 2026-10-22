@@ -13,6 +13,8 @@ const projects = defineCollection({
       org: z.string(),
       period: z.string(),
       cover: image().optional(),
+      // Shown whole (never cropped) on the project's card only, e.g. a logo or a licensed figure.
+      preview: image().optional(),
       featured: z.number().optional(),
       order: z.number(),
     }),

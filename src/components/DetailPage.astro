@@ -75,7 +75,13 @@ const { backHref, backLabel, title, meta, tags = [], cover } = Astro.props;
     background: #fff;
   }
 
-  .prose :global(figcaption) {
+  .prose :global(img + .caption),
+  .prose :global(p:has(> img) + .caption) {
+    margin-top: -1rem;
+  }
+
+  .prose :global(figcaption),
+  .prose :global(.caption) {
     color: var(--muted);
     font-size: 0.9rem;
     text-align: center;
@@ -102,12 +108,8 @@ const { backHref, backLabel, title, meta, tags = [], cover } = Astro.props;
     width: 100% !important;
   }
 
-  .prose :global(.instagram-grid iframe) {
-    aspect-ratio: auto;
-    margin: 0;
-  }
-
-  .prose :global(iframe) {
+  /* Video embeds (YouTube etc.). Instagram sizes its own iframe height, so leave it alone. */
+  .prose :global(iframe:not(.instagram-media)) {
     display: block;
     width: 100%;
     height: auto;

@@ -6,7 +6,7 @@ export interface Props {
   href: string;
   title: string;
   meta: string;
-  summary: string;
+  summary?: string;
   cover?: ImageMetadata;
   /** 'contain' shows the whole image on a white panel instead of cropping it to fill. */
   fit?: 'cover' | 'contain';
@@ -25,7 +25,7 @@ const { href, title, meta, summary, cover, fit = 'cover' } = Astro.props;
   }
   <h3><a href={href}>{title}</a></h3>
   <p class="meta">{meta}</p>
-  <p>{summary}</p>
+  {summary && <p>{summary}</p>}
 </article>
 
 <style>

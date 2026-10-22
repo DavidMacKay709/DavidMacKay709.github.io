@@ -17,6 +17,6 @@ const expeditions = (await getCollection('expeditions')).sort((a, b) => a.data.o
   </header>
 
   <div class="card-grid">
-    {expeditions.map((expedition) => <Card {...expeditionCard(expedition)} />)}
+    {expeditions.map((expedition) => <Card {...expeditionCard(expedition)} summary={undefined} />)}
   </div>
 </BaseLayout>

@@ -8,18 +8,10 @@ featured: 3
 order: 3
 ---
 
-**Publication:** "Hydrogen microgrids to facilitate the clean energy transition in remote, northern communities", *Applied Energy*, 2025. Second author.
+**Publication:** "Hydrogen microgrids to facilitate the clean energy transition in remote, northern communities", *Applied Energy*, 2025.
 
-<a class="button" href="https://www.sciencedirect.com/science/article/pii/S0306261925014886">Read the paper</a>
+I. Maynard, **D. MacKay**, K. R. Schell, R. Kilpatrick, A. Abdulla
 
-The original author finished their M.Eng. partway through the project, and I took it over and led it to completion. My contributions:
+Most remote northern communities in Canada rely on diesel for electricity. We optimized hydrogen microgrid investments for 37 of them and found that hydrogen microgrids are cheaper than diesel, in levelized cost terms, in 28. That advantage depends heavily on wind costs: if wind capital costs rise to CAD 20,000/kW, only 3 communities still come out ahead.
 
-- Updated the methods to include solar PV
-- Wrote and reviewed the updated manuscript
-- Developed the visualization methods
-- Carried out the investigation
-- Addressed reviewer comments through revision
-
-## Related work: temporal resolution
-
-I also developed methods for a related paper on how temporal resolution affects results when modelling wind, solar, and hydrogen microgrids.
+<a class="button" href="https://doi.org/10.1016/j.apenergy.2025.126758">Read the paper (open access)</a>

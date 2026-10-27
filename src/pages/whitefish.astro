@@ -5,11 +5,13 @@ import Gallery from '../components/Gallery.astro';
 
 // Each project's photos live in src/assets/whitefish/<folder>/, ordered by filename.
 const projects = [
-  { folder: 'shed', title: 'Single-slope roof shed build' },
-  { folder: 'fence', title: 'Fence and decorative gate with pergola' },
-  { folder: 'garden-fence', title: 'Rustic garden fence' },
-  { folder: 'channel-drain', title: 'Channel drain for underground garages' },
-  { folder: 'other', title: 'Other projects' },
+  { folder: 'cabin', title: 'Cabin Renovation' },
+  { folder: 'retaining-wall', title: 'Retaining Wall, Patio, and Shed' },
+  { folder: 'shed', title: 'Single-Slope Roof Shed Build' },
+  { folder: 'fence', title: 'Fence and Decorative Gate with Pergola' },
+  { folder: 'garden-fence', title: 'Rustic Garden Fence' },
+  { folder: 'channel-drain', title: 'Channel Drain for Underground Garages' },
+  { folder: 'other', title: 'Other Projects' },
 ];
 
 const allPhotos = import.meta.glob<ImageMetadata>('/src/assets/whitefish/*/*.{jpg,jpeg,png,webp}', {
@@ -24,15 +26,15 @@ const photosIn = (folder: string) =>
 ---
 
 <BaseLayout
-  title="Whitefish Landscaping"
+  title="Whitefish"
   description="Whitefish Landscaping, the landscaping and contracting business David MacKay started and ran in Ottawa and St. John's."
 >
   <header class="page-header">
-    <h1>Whitefish Landscaping</h1>
+    <h1>Whitefish</h1>
     <p class="lede">Owner & Operator · Ottawa & St. John's · 2021 – 2022</p>
   </header>
 
-  <p>See some of the work we completed below.</p>
+  <p>See some of our work.</p>
 
   {
     projects.map(({ folder, title }) => {

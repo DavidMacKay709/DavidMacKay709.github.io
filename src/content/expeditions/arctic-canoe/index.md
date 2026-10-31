@@ -2,7 +2,8 @@
 title: Canoe Expedition Through Canada's Arctic
 summary: A 70-day self-supported canoe expedition through Canada's remote Arctic.
 when: Summer 2026
-featured: 1
+route: The Big Skitz Mission
+featured: 2
 order: 1
 cover: ./photos/20260916-180.jpg
 ---

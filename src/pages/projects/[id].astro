@@ -16,7 +16,7 @@ interface Props {
 }
 
 const { project } = Astro.props;
-const { title, summary, org, period, cover } = project.data;
+const { title, summary, org, period, cover, logos } = project.data;
 const { Content } = await render(project);
 ---
 
@@ -27,6 +27,7 @@ const { Content } = await render(project);
     title={title}
     meta={`${org} · ${period}`}
     cover={cover}
+    logos={logos}
   >
     <Content />
   </DetailPage>

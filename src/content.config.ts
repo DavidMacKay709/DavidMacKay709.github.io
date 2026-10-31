@@ -15,6 +15,8 @@ const projects = defineCollection({
       cover: image().optional(),
       // Shown whole (never cropped) on the project's card only, e.g. a logo or a licensed figure.
       preview: image().optional(),
+      // Shown in a row at the top of the project's page.
+      logos: z.array(z.object({ src: image(), alt: z.string() })).optional(),
       featured: z.number().optional(),
       order: z.number(),
     }),
@@ -32,6 +34,8 @@ const expeditions = defineCollection({
       title: z.string(),
       summary: z.string(),
       when: z.string(),
+      // Filename (without .kml) of the trip's route in routes/, drawn on the map.
+      route: z.string().optional(),
       cover: image().optional(),
       featured: z.number().optional(),
       order: z.number(),

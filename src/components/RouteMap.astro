@@ -1,0 +1,63 @@
+---
+import type { LatLng } from '../lib/routes';
+
+interface Props {
+  lines: LatLng[][];
+}
+
+const { lines } = Astro.props;
+---
+
+<div class="route-map" data-lines={JSON.stringify(lines)}></div>
+
+<script>
+  import L from 'leaflet';
+  import 'leaflet/dist/leaflet.css';
+
+  const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
+
+  document.querySelectorAll<HTMLElement>('.route-map').forEach((element) => {
+    const lines = JSON.parse(element.dataset.lines ?? '[]');
+
+    // Scroll wheel zoom stays off so the map doesn't trap scrolling down the page.
+    const map = L.map(element, { scrollWheelZoom: false });
+    // The title sits over the bottom of the map, so the credit goes up top where it stays visible.
+    map.attributionControl.setPosition('topright');
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    }).addTo(map);
+
+    const route = L.polyline(lines, { color: accent, weight: 3 }).addTo(map);
+
+    for (const point of [lines[0][0], lines.at(-1).at(-1)]) {
+      L.circleMarker(point, { radius: 6, color: '#fff', weight: 2, fillColor: accent, fillOpacity: 1 }).addTo(map);
+    }
+
+    // Keep the whole route clear of the title panel.
+    const title = element.parentElement?.querySelector('header')?.offsetHeight ?? 0;
+    map.fitBounds(route.getBounds(), { paddingTopLeft: [32, 32], paddingBottomRight: [32, title + 32] });
+  });
+</script>
+
+<style>
+  .route-map {
+    height: 26rem;
+    max-height: 70vh;
+    border: 1px solid var(--border);
+    /* Keeps Leaflet's layers below the title panel. */
+    isolation: isolate;
+  }
+
+  /* Wash out the base map so the route stands out on the white page. */
+  .route-map :global(.leaflet-tile-pane) {
+    filter: grayscale(1) contrast(0.9) brightness(1.08);
+  }
+
+  /* Square off Leaflet's rounded controls to match the site. */
+  .route-map :global(.leaflet-bar),
+  .route-map :global(.leaflet-bar a) {
+    border-radius: 0 !important;
+  }
+</style>
